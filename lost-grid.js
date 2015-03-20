@@ -1,9 +1,9 @@
-// lost-grid.js - v0.0.1
+// lost-grid.js - v0.0.2
 
 $(function() {
 
   var lost = {
-    gutter: 30,
+    gutter: 0,
     breakpoint: 1000,
     rtl: false
   };
@@ -27,9 +27,19 @@ $(function() {
   // l-center
   $('[l-center]').each(function(k) {
     if($(this).attr('l-center') > 0) {
-      sheet.insertRule('[l-center]:nth-of-type('+ (k + 1) +') { max-width: '+ lost.breakpoint +'px; margin-left: auto; margin-right: auto; padding-left: '+ $(this).attr('l-center') +'px; padding-right: '+ $(this).attr('l-center') +'px; }', 0);
+      $(this).css({
+        maxWidth: lost.breakpoint,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        paddingLeft: $(this).attr('l-center'),
+        paddingRight: $(this).attr('l-center')
+      });
     } else {
-      sheet.insertRule('[l-center]:nth-of-type('+ (k + 1) +') { max-width: '+ lost.breakpoint +'px; margin-left: auto; margin-right: auto; }', 0);
+      $(this).css({
+        maxWidth: lost.breakpoint,
+        marginLeft: 'auto',
+        marginRight: 'auto'
+      });
     }
   });
 
@@ -46,52 +56,72 @@ $(function() {
     sheet.insertRule('[l-column] { float: right; }', 0);
   }
 
-  $('[l-center]').each(function(x) {
+
+  // l-column
+  $('[l-column]').each(function(k) {
+
+    if(lost.gutter > 0) {
+      $(this).css({
+        width: 'calc(100% * '+ $(this).attr('l-column') +' - '+ lost.gutter +'px)',
+        marginLeft: (lost.gutter / 2),
+        marginRight: (lost.gutter / 2)
+      });
+    } else {
+      $(this).css({
+        width: 'calc(100% * '+ $(this).attr('l-column') +')'
+      });
+    }
+
+  });
 
 
-    // l-offset
-    $(this).find('[l-offset]').each(function(k) {
-      if(lost.gutter > 0) {
-        if(parseInt($(this).attr('l-offset')) > 0) {
-          sheet.insertRule('[l-center]:nth-of-type('+ (x + 1) +') [l-offset]:nth-child('+ (k + 1) +') { width: calc(100% * '+ $(this).attr('l-column') +' - '+ lost.gutter +'px); margin-right: '+ (lost.gutter / 2) +'px; margin-left: calc(100% * '+ $(this).attr('l-offset') +' + ('+ lost.gutter +'px / 2)); }', 0);
-        } else {
-          sheet.insertRule('[l-center]:nth-of-type('+ (x + 1) +') [l-offset]:nth-child('+ (k + 1) +') { width: calc(100% * '+ $(this).attr('l-column') +' - '+ lost.gutter +'px); margin-left: '+ (lost.gutter / 2) +'px; margin-right: calc(-100% * '+ $(this).attr('l-offset') +' + ('+ lost.gutter +'px / 2)); }', 0);
-        }
+  // l-offset
+  $('[l-offset]').each(function(k) {
+    if(lost.gutter > 0) {
+      if(parseInt($(this).attr('l-offset')) > 0) {
+        $(this).css({
+          width: 'calc(100% * '+ $(this).attr('l-column') +' - '+ lost.gutter +'px)',
+          marginRight: lost.gutter / 2,
+          marginLeft: 'calc(100% * '+ $(this).attr('l-offset') +' + ('+ lost.gutter +'px / 2))'
+        });
       } else {
-        if(parseInt($(this).attr('l-offset')) > 0) {
-          sheet.insertRule('[l-center]:nth-of-type('+ (x + 1) +') [l-column]:nth-child('+ (k + 1) +') { width: calc(100% * '+ $(this).attr('l-column') +'); margin-left: calc(100% * '+ $(this).attr('l-offset') +'); }', 0);
-        } else {
-          sheet.insertRule('[l-center]:nth-of-type('+ (x + 1) +') [l-column]:nth-child('+ (k + 1) +') { width: calc(100% * '+ $(this).attr('l-column') +'); margin-right: calc(-100% * '+ $(this).attr('l-offset') +'); }', 0);
-        }
+        $(this).css({
+          width: 'calc(100% * '+ $(this).attr('l-column') +' - '+ lost.gutter +')',
+          marginLeft: lost.gutter / 2,
+          marginRight: 'calc(-100% * '+ $(this).attr('l-offset') +' + ('+ lost.gutter +'px / 2))'
+        });
       }
-    });
-
-
-    // l-column
-    $(this).find('[l-column]').each(function(k) {
-
-      if(lost.gutter > 0) {
-        sheet.insertRule('[l-center]:nth-of-type('+ (x + 1) +') [l-column]:nth-child('+ (k + 1) +') { width: calc(100% * '+ $(this).attr('l-column') +' - '+ lost.gutter +'px); margin-left: '+ (lost.gutter / 2) +'px; margin-right: '+ (lost.gutter / 2) +'px; }', 0);
+    } else {
+      if(parseInt($(this).attr('l-offset')) > 0) {
+        $(this).css({
+          width: 'calc(100% * '+ $(this).attr('l-column') +')',
+          marginLeft: 'calc(100% * '+ $(this).attr('l-offset') +')'
+        });
       } else {
-        sheet.insertRule('[l-center]:nth-of-type('+ (x + 1) +') [l-column]:nth-child('+ (k + 1) +') { width: calc(100% * '+ $(this).attr('l-column') +'); }', 0);
+        $(this).css({
+          width: 'calc(100% * '+ $(this).attr('l-column') +')',
+          marginRight: 'calc(-100% * '+ $(this).attr('l-offset') +')'
+        });
       }
+    }
+  });
 
+
+  // move
+  $('[l-move]').each(function(k) {
+    $(this).css({
+      position: 'relative',
+      left: 'calc(100% * '+ $(this).attr('l-move') +')'
     });
+  });
 
 
-    // move
-    $(this).find('[l-move]').each(function(k) {
-      sheet.insertRule('[l-center]:nth-of-type('+ (x + 1) +') [l-move]:nth-child('+ (k + 1) +') { position: relative; left: calc(100% * '+ $(this).attr('l-move') +'); }', 0);
+  // cycle
+  $('[l-cycle]').each(function(k) {
+    $(this).find('> *:nth-child('+ $(this).attr('l-cycle') +'n + 1)').css({
+      clear: 'both'
     });
-
-
-    // cycle
-    $(this).find('[l-cycle]').each(function(k) {
-      sheet.insertRule('[l-center]:nth-of-type('+ (x + 1) +') [l-cycle]:nth-child('+ (k + 1) +') > *:nth-child('+ $(this).attr('l-cycle') +'n + 1) { clear: both; }', 0);
-      sheet.insertRule('[l-center]:nth-of-type('+ (x + 1) +') [l-cycle]:nth-child('+ (k + 1) +') > *:nth-child(n) { clear: none; }', 0);
-    });
-
-
+    sheet.insertRule('[l-cycle] > *:nth-child(n) { clear: none; }', 0);
   });
 
 
