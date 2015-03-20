@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lost.js</title>
+  <title>lost-grid.js</title>
   <link rel="stylesheet" href="style.css">
   <style>
     * {
@@ -16,12 +16,25 @@
 <body>
 
 
-  <div l-center="30">
-    <div l-row>
-      <div l-column="1/3">third</div>
-      <div l-column="1/3">third</div>
+  <section l-center>
+    <div l-row l-cycle="3">
+
+      <figure l-column="1/3">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, facilis.
+      </figure>
+      <figure l-column="1/3">
+        Lorem ipsum dolor.
+      </figure>
+      <figure l-column="1/3">
+        Lorem ipsum dolor sit amet, consectetur adipisicing.
+      </figure>
+
+      <figure l-column="1/3">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, facilis.
+      </figure>
+
     </div>
-  </div>
+  </section>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
