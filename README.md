@@ -75,6 +75,10 @@ var lost = {
 ```
 
 
+### Browse example code
+- https://github.com/corysimmons/lost-grid.js/tree/gh-pages
+
+
 ### Browser Support
 - IE9+
 - Poor support in older Android browsers
