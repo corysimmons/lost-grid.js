@@ -8,6 +8,9 @@ html {
   padding: 3rem;
   font-family: sans-serif;
 }
+body {
+  display: none;
+}
 .logo {
   display: inline-block;
   margin-bottom: 3rem;
