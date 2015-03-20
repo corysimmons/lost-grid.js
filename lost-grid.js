@@ -1,9 +1,9 @@
-// lost-grid.js - v0.0.2
+// lost-grid.js - v0.0.3
 
 $(function() {
 
   var lost = {
-    gutter: 0,
+    gutter: 30,
     breakpoint: 1000,
     rtl: false
   };
