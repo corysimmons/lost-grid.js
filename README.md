@@ -1,4 +1,6 @@
-# lost-grid.js
+<p align="center">
+  <img src="http://corysimmons.github.io/lost-grid.js/lost-grid.js.svg">
+</p>
 
 lost-grid.js is a revolutionary grid system where you can **create your grid directly in your markup**. It's based off it's incredibly powerful CSS preprocessor sister, [Lost Grid](https://github.com/corysimmons/lost).
 
