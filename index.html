@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>lost-grid.js Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+
+    <a href="https://github.com/corysimmons/lost-grid.js" class="logo">
+      <img src="lost-grid.js.svg">
+    </a>
+
+
+    <!-- Basic -->
+    <section l-center>
+      <div l-row>
+        <figure l-column="1/3">1</figure>
+        <figure l-column="1/3">2</figure>
+        <figure l-column="1/3">3</figure>
+        <figure l-column="1/3">4</figure>
+        <figure l-column="1/3">5</figure>
+        <figure l-column="1/3">6</figure>
+      </div>
+    </section>
+
+
+    <!-- Offset -->
+    <section l-center>
+      <div l-row>
+        <figure l-column="1/3" l-offset="-1/3">1</figure>
+        <figure l-column="1/3">2</figure>
+      </div>
+    </section>
+
+
+    <!-- Source Ordering -->
+    <section l-center>
+      <div l-row>
+        <figure l-column="1/2" l-move="1/2">1</figure>
+        <figure l-column="1/2" l-move="-1/2">2</figure>
+      </div>
+    </section>
+
+
+    <!-- Clear Unequal Heights -->
+    <section l-center>
+      <div l-row>
+        <figure l-column="1/3">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur illo cum tempore, nemo sed eos, officiis deleniti ullam repellendus ab, earum ea labore, doloremque repudiandae odio accusantium rem mollitia. Aliquam!
+        </figure>
+        <figure l-column="1/3">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, ullam?
+        </figure>
+        <figure l-column="1/3">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla magnam, sapiente vitae, at repudiandae debitis impedit quas quam dolor laboriosam architecto beatae laudantium praesentium obcaecati aperiam ipsum. Enim animi excepturi sequi. Reiciendis nostrum eligendi iusto blanditiis dicta nesciunt velit! Magnam.
+        </figure>
+        <figure l-column="1/3">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil porro, ratione sunt nobis. Tenetur?
+        </figure>
+        <figure l-column="1/3">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quos molestias aspernatur ipsam, expedita id maiores quam dolorem accusamus nam.
+        </figure>
+        <figure l-column="1/3">
+          Lorem ipsum dolor.
+        </figure>
+      </div>
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="lost-grid.js"></script>
+  </body>
+</html>
