@@ -10,7 +10,6 @@ It uses similar markup to Bootstrap's grid (`container > row > columns`) so it's
 ### Installation
 - Include jQuery
 - Include [lost-grid.js](lost-grid.js)
-- Include a stylesheet in your HTML file somewhere
 
 
 ### Getting Started
