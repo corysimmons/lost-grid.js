@@ -9,6 +9,12 @@ $(function() {
   };
 
 
+  // avoid fouc
+  setTimeout(function() {
+    $('body').fadeIn(250);
+  }, 250);
+
+
   // stylesheet
   var sheet = (function() {
     var style = document.createElement('style');

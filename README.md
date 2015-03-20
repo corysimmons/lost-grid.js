@@ -10,6 +10,7 @@ It uses similar markup to Bootstrap's grid (`container > row > columns`) so it's
 ### Installation
 - Include jQuery
 - Include [lost-grid.js](lost-grid.js)
+- (Optional) To avoid a page flash while the JS renders the layout, set `body { display: none; }` in your CSS.
 
 
 ### Getting Started
