@@ -87,3 +87,4 @@ var lost = {
 
 ### Caveats
 - Although the grid you create is responsive, there is currently no support for breakpoints. We're currently working on an elegant solution to this problem.
+- Makes your markup look pretty cluttered. There's no real way around this (even with `insertRule` as it breaks with nesting). If you're worried about this but like this grid's features, I suggest you check out [Lost Grid](http://github.com/corysimmons/lost) for CSS pre-processors.
