@@ -2,6 +2,10 @@
   <img src="http://corysimmons.github.io/lost-grid.js/lost-grid.js.svg">
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/bower/v/lost-grid.js.svg">
+</p>
+
 lost-grid.js is a revolutionary grid system where you can **create your grid directly in your markup**. It's based off it's incredibly powerful CSS preprocessor sister, [Lost Grid](https://github.com/corysimmons/lost).
 
 It uses similar markup to Bootstrap's grid (`container > row > columns`) so it's very easy to pick up. What sets it apart from Bootstrap's grid is it's ability to use fractions to create grids on-the-fly. Did we mention you can do all this directly in your markup?
