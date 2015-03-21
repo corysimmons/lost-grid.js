@@ -40,11 +40,26 @@ We can change the width of these blocks by adding fractions for [each breakpoint
 <figure l-col="1 1/2 1/4">...</figure>
 ```
 
-Let's offset an element. Pass a postive fraction to create a `margin-left` offset. Pass a negative one for `margin-right`.
+Add some padding to the sides of containers.
+
+```html
+<section l-container="30">
+  ...
+</section>
+```
+
+Let's offset an element. Pass a positive fraction to create a `margin-left` offset. Pass a negative one for `margin-right`.
 
 ```html
 <figure l-col="1/3" l-offset="1/3">...</figure>
 <figure l-col="1/3">...</figure>
+```
+
+In fact, we can pass multiple values to **any** of our custom attributes that will work in sync with their corresponding breakpoints.
+
+```html
+<figure l-col="1/3 1/4" l-offset="1/3 1/4">...</figure>
+<figure l-col="1/3 1/4">...</figure>
 ```
 
 We can source order with the `l-move` attribute.
