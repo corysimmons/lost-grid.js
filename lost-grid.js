@@ -1,11 +1,12 @@
-// lost-grid.js - v0.0.3
+// lost-grid.js - v0.0.4
 
 $(function() {
 
   var lost = {
     gutter: 30,
-    breakpoint: 1000,
-    rtl: false
+    maxWidth: 1000,
+    rtl: false,
+    breakpoints: [0, 600, 1000]
   };
 
 
@@ -24,19 +25,19 @@ $(function() {
   })();
 
 
-  // l-center
-  $('[l-center]').each(function(k) {
-    if($(this).attr('l-center') > 0) {
+  // l-container
+  $('[l-container]').each(function(k) {
+    if($(this).attr('l-container') > 0) {
       $(this).css({
-        maxWidth: lost.breakpoint,
+        maxWidth: lost.maxWidth,
         marginLeft: 'auto',
         marginRight: 'auto',
-        paddingLeft: $(this).attr('l-center'),
-        paddingRight: $(this).attr('l-center')
+        paddingLeft: $(this).attr('l-container'),
+        paddingRight: $(this).attr('l-container')
       });
     } else {
       $(this).css({
-        maxWidth: lost.breakpoint,
+        maxWidth: lost.maxWidth,
         marginLeft: 'auto',
         marginRight: 'auto'
       });
@@ -50,29 +51,53 @@ $(function() {
   sheet.insertRule('[l-row]:after { content: ""; display: table; clear: both; }', 0);
 
 
+  // l-col
   if(!lost.rtl) {
-    sheet.insertRule('[l-column] { float: left; }', 0);
+    sheet.insertRule('[l-col] { float: left; }', 0);
   } else {
-    sheet.insertRule('[l-column] { float: right; }', 0);
+    sheet.insertRule('[l-col] { float: right; }', 0);
   }
 
+  var setColumns = function() {
+    $(lost.breakpoints).each(function(i, breakpoint) {
 
-  // l-column
-  $('[l-column]').each(function(k) {
+      $('[l-col]').each(function(k, v) {
 
-    if(lost.gutter > 0) {
-      $(this).css({
-        width: 'calc(100% * '+ $(this).attr('l-column') +' - '+ lost.gutter +'px)',
-        marginLeft: (lost.gutter / 2),
-        marginRight: (lost.gutter / 2)
+        var fractions = $(this).attr('l-col').split(' ');
+
+        if($(window).width() > breakpoint) {
+
+          if(lost.gutter > 0) {
+            $(this).css({
+              width: 'calc(100% * '+ fractions[i] +' - '+ lost.gutter +'px)',
+              marginLeft: (lost.gutter / 2),
+              marginRight: (lost.gutter / 2)
+            });
+          } else {
+            $(this).css({
+              width: 'calc(100% * '+ fractions[i] +')'
+            });
+          }
+
+        }
+
       });
-    } else {
-      $(this).css({
-        width: 'calc(100% * '+ $(this).attr('l-column') +')'
-      });
-    }
 
+    });
+  };
+
+  var didResize = false;
+  $(window).resize(function() {
+    didResize = true;
   });
+  setInterval(function() {
+    if(didResize) {
+      setColumns();
+      didResize = false;
+    }
+  }, 250);
+
+  setColumns();
 
 
   // l-offset
@@ -80,13 +105,13 @@ $(function() {
     if(lost.gutter > 0) {
       if(parseInt($(this).attr('l-offset')) > 0) {
         $(this).css({
-          width: 'calc(100% * '+ $(this).attr('l-column') +' - '+ lost.gutter +'px)',
+          width: 'calc(100% * '+ $(this).attr('l-col') +' - '+ lost.gutter +'px)',
           marginRight: lost.gutter / 2,
           marginLeft: 'calc(100% * '+ $(this).attr('l-offset') +' + ('+ lost.gutter +'px / 2))'
         });
       } else {
         $(this).css({
-          width: 'calc(100% * '+ $(this).attr('l-column') +' - '+ lost.gutter +')',
+          width: 'calc(100% * '+ $(this).attr('l-col') +' - '+ lost.gutter +')',
           marginLeft: lost.gutter / 2,
           marginRight: 'calc(-100% * '+ $(this).attr('l-offset') +' + ('+ lost.gutter +'px / 2))'
         });
@@ -94,12 +119,12 @@ $(function() {
     } else {
       if(parseInt($(this).attr('l-offset')) > 0) {
         $(this).css({
-          width: 'calc(100% * '+ $(this).attr('l-column') +')',
+          width: 'calc(100% * '+ $(this).attr('l-col') +')',
           marginLeft: 'calc(100% * '+ $(this).attr('l-offset') +')'
         });
       } else {
         $(this).css({
-          width: 'calc(100% * '+ $(this).attr('l-column') +')',
+          width: 'calc(100% * '+ $(this).attr('l-col') +')',
           marginRight: 'calc(-100% * '+ $(this).attr('l-offset') +')'
         });
       }
@@ -123,6 +148,5 @@ $(function() {
     });
     sheet.insertRule('[l-cycle] > *:nth-child(n) { clear: none; }', 0);
   });
-
 
 });
