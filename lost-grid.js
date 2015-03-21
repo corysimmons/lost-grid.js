@@ -1,4 +1,4 @@
-// lost-grid.js v0.0.6 - https://github.com/corysimmons/lost-grid.js
+// lost-grid.js v0.0.7 - https://github.com/corysimmons/lost-grid.js
 
 $(function() {
 
@@ -272,6 +272,76 @@ $(function() {
 
     });
   };
+
+
+  /**
+   *
+   * [l-align]
+   *
+   * Vertically and/or horizontally center children elements of this element.
+   *
+   * @param {string} - Accepts 'vertical' or 'horizontal'. Defaults to both.
+   *
+   * @example
+   *   <section l-align>
+   *     <figure> centered </figure>
+   *   </section>
+   *
+   */
+
+  sheet.insertRule('[l-align] { display: flex; }', 0);
+
+  $('[l-align]').each(function() {
+
+    if($(this).attr('l-align') == 'vertical') {
+      $(this).css('align-items', 'center');
+    } else if($(this).attr('l-align') == 'horizontal') {
+      $(this).css('justify-content', 'center');
+    } else {
+      $(this).css({
+        alignItems: 'center',
+        justifyContent: 'center'
+      });
+    }
+
+  });
+
+
+  /**
+   *
+   * [l-edit]
+   *
+   * Apply a light colored translucent background to every nested element. Useful for debugging the structure of your site.
+   *
+   * @param {color} - A CSS hex color. Defaults to #000000.
+   *
+   * @example
+   *   <section l-edit>
+   *     <figure>1</figure>
+   *     <figure>2</figure>
+   *   </section>
+   *
+   */
+
+  function convertHex(hex, opacity) {
+    var hex = hex.replace('#', ''),
+        r = parseInt(hex.substring(0,2), 16),
+        g = parseInt(hex.substring(2,4), 16),
+        b = parseInt(hex.substring(4,6), 16);
+
+    result = 'rgba('+ r +','+ g +','+ b +','+ (opacity / 100) +')';
+    return result;
+  }
+
+  $('[l-edit]').each(function() {
+
+    if($(this).attr['l-edit'] != null) {
+      $(this).find('*').css('background', convertHex($(this).attr('l-edit'), '10'));
+    } else {
+      $(this).find('*').css('background', 'rgba(0, 0, 0, .1)');
+    }
+
+  });
 
 
   // Throttled resizing

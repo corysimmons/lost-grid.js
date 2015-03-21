@@ -82,3 +82,12 @@ section:nth-of-type(5) figure {
   overflow: hidden;
   margin-bottom: 30px;
 }
+section:nth-of-type(6) {
+  background: #90ee90;
+}
+section:nth-of-type(6) div {
+  height: 200px;
+}
+section:nth-of-type(6) figure {
+  background: #6fe96f;
+}
