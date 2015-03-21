@@ -27,7 +27,7 @@ $(function() {
   var setContainers = function() {
     $(lost.breakpoints).each(function(i, breakpoint) {
 
-      $('[l-container]').each(function(k) {
+      $('[l-container]').each(function() {
 
         var paddings = $(this).attr('l-container').split(' ');
 
@@ -63,7 +63,7 @@ $(function() {
   var setColumns = function() {
     $(lost.breakpoints).each(function(i, breakpoint) {
 
-      $('[l-col]').each(function(k) {
+      $('[l-col]').each(function() {
 
         var fractions = $(this).attr('l-col').split(' ');
 
@@ -91,7 +91,7 @@ $(function() {
   var setOffsets = function() {
     $(lost.breakpoints).each(function(i, breakpoint) {
 
-      $('[l-offset]').each(function(k) {
+      $('[l-offset]').each(function() {
 
         var fractions = $(this).attr('l-offset').split(' ');
 
@@ -133,7 +133,7 @@ $(function() {
   var setMoves = function() {
     $(lost.breakpoints).each(function(i, breakpoint) {
 
-      $('[l-move]').each(function(k) {
+      $('[l-move]').each(function() {
 
         var fractions = $(this).attr('l-move').split(' ');
 
@@ -155,7 +155,7 @@ $(function() {
   var setCycles = function() {
     $(lost.breakpoints).each(function(i, breakpoint) {
 
-      $('[l-cycle]').each(function(k) {
+      $('[l-cycle]').each(function() {
 
         var cycles = $(this).attr('l-cycle').split(' ');
 
