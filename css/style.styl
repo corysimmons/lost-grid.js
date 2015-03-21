@@ -49,6 +49,19 @@ section
       background: darken(#7ba48d, 10%)
 
   &:nth-of-type(4)
+    background: #f19a3e
+    figure
+      background: darken(#f19a3e, 10%)
+      margin-bottom: 30px
+      &:nth-child(4)
+        margin-bottom: 0
+      @media (min-width: 600px)
+        &:nth-child(3)
+          margin-bottom: 0
+      @media (min-width: 1000px)
+        margin-bottom: 0
+
+  &:nth-of-type(5)
     background: #52a9b1
     figure
       background: darken(#52a9b1, 10%)
