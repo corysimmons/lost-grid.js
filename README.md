@@ -31,7 +31,7 @@ Let's start by creating 2 elements that are half of their container. Any fractio
 </section>
 ```
 
-We can change the width of these blocks by adding fractions for [each breakpoint](https://github.com/corysimmons/lost-grid.js/blob/master/lost-grid.js#L9) in lost-grid.js.
+We can change the width of these blocks by adding fractions for [each breakpoint](https://github.com/corysimmons/lost-grid.js/blob/master/lost-grid.js#L11) in lost-grid.js.
 
 ```html
 <figure l-col="1 1/2 1/4">...</figure>
