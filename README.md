@@ -93,6 +93,11 @@ lost-grid.js supports [Isotope](http://isotope.metafizzy.co/) for columns of une
 </section>
 ```
 
+We've even bundled a couple helper classes.
+
+- `<div l-align>` will align elements both vertically and horizontally, or you can pass 'vertical' or 'horizontal' like so `<div l-align="vertical">`.
+- `<div l-edit>` will add a translucent background color to all nested elements. Useful for debugging. Accepts hex colors.
+
 
 ### Settings
 ```javascript
